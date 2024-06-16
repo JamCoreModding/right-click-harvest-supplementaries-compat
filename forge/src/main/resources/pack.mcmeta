@@ -1,6 +1,6 @@
 {
     "pack": {
-        "description": "{{ name }}",
+        "description": "RightClickHarvest Supplementaries Compat",
         "pack_format": 15
     }
 }

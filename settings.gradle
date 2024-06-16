@@ -27,9 +27,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "{{ mod_id }}"
+rootProject.name = "rch-supplementaries-compat"
 include("common")
 include("fabric")
-include("quilt")
-include("neoforge")
 include("forge")

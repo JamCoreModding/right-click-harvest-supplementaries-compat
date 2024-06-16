@@ -1,32 +1,26 @@
 {
     "schemaVersion": 1,
-    "id": "{{ mod_id }}",
+    "id": "rch_supplementaries_compat",
     "version": "${version}",
-    "name": "{{ name }}",
-    "description": "{{ description }}",
+    "name": "RightClickHarvest Supplementaries Compat",
+    "description": "Adds compatibility between RightClickHarvest and Supplementaries",
     "authors": [
-        "{{ author }}"
+        "Jamalam"
     ],
     "contact": {
-        "homepage": "https://github.com/{{github_owner}}/{{github_repo}}",
-        "sources": "https://github.com/{{github_owner}}/{{github_repo}}",
-        "issues": "https://github.com/{{github_owner}}/{{github_repo}}/issues"
+        "homepage": "https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat",
+        "sources": "https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat",
+        "issues": "https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat/issues"
     },
     "license": "MIT",
-    "icon": "assets/{{mod_id}}/icon.png",
+    "icon": "assets/rch_supplementaries_compat/icon.png",
     "environment": "*",
-    "entrypoints": {
-        "main": [
-            "{{group}}.{{mod_id}}.fabric.{{main_class}}Fabric"
-        ]
-    },
     "mixins": [
-        "{{mod_id}}.mixins.json"
+        "rch_supplementaries_compat.mixins.json"
     ],
     "depends": {
-        "fabric": ">=${fabric_api_version}",
         "minecraft": ">=${minecraft_version}",
-        "architectury": ">=${architectury_version}",
-        "jamlib": ">=${jamlib_version}"
+        "rightclickharvest": ">=${rch_version}",
+        "supplementaries": ">=${supplementaries_version}"
     }
 }
