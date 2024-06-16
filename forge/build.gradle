@@ -41,52 +41,51 @@ dependencies {
 }
 
 if (System.getenv("CURSEFORGE_API_KEY") != null && System.getenv("MODRINTH_API_KEY") != null) {
-// Uncomment these lines and fill in the IDs when ready to publish :)
-//    unifiedPublishing {
-//        project {
-//            displayName = "V${project.version} (Forge ${project.minecraft_version})"
-//            changelog = rootProject.file("CHANGELOG.md").text
-//            releaseType = project.version.contains("beta") ? "beta" : "release"
-//            gameVersions = [project.minecraft_version]
-//            gameLoaders = ["forge"]
-//
-//            mainPublication tasks.remapJar
-//
-//            relations {
-//                depends {
-//                    curseforge = "architectury-api"
-//                    modrinth = "architectury-api"
-//                }
-//
-//                depends {
-//                    curseforge = "jamlib"
-//                    modrinth = "jamlib"
-//                }
-//            }
-//
-//            curseforge {
-//                token = System.getenv("CURSEFORGE_API_KEY")
-//                id = ""
-//            }
-//
-//            modrinth {
-//                token = System.getenv("MODRINTH_API_KEY")
-//                id = ""
-//            }
-//        }
-//    }
+    unifiedPublishing {
+        project {
+            displayName = "V${project.version} (Forge ${project.minecraft_version})"
+            changelog = rootProject.file("CHANGELOG.md").text
+            releaseType = project.version.contains("beta") ? "beta" : "release"
+            gameVersions = [project.minecraft_version]
+            gameLoaders = ["forge"]
+
+            mainPublication tasks.remapJar
+
+            relations {
+                depends {
+                    curseforge = "supplementaries"
+                    modrinth = "supplementaries"
+                }
+
+                depends {
+                    curseforge = "rightclickharvest"
+                    modrinth = "rightclickharvest"
+                }
+            }
+
+            curseforge {
+                token = System.getenv("CURSEFORGE_API_KEY")
+                id = "1038427"
+            }
+
+            modrinth {
+                token = System.getenv("MODRINTH_API_KEY")
+                id = "1UdKJCjq"
+            }
+        }
+    }
 }
 
 processResources {
     filesMatching("mods.toml") {
         expand "minecraft_version": project.minecraft_version,
                 "rch_version": libs.versions.rightclickharvest.forge.get(),
-                "supplementaries_version": libs.versions.supplementaries.forge.get()
+                "supplementaries_version": project.supplementaries_version
     }
 
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "rch_version", libs.versions.rightclickharvest.forge.get()
-    inputs.property "supplementaries_version", libs.versions.supplementaries.forge.get()
+    inputs.property "supplementaries_version", project.supplementaries_version
 }
 
 shadowJar {
