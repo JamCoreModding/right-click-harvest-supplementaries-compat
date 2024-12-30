@@ -30,5 +30,4 @@ dependencyResolutionManagement {
 rootProject.name = "rch-supplementaries-compat"
 include("common")
 include("fabric")
-//include("forge")
-// TODO NeoForge this bich
+include("neoforge")
