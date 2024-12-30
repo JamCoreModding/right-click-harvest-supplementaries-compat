@@ -1,37 +1,37 @@
 [versions]
 # https://files.minecraftforge.net/net/minecraftforge/forge/
-forge = "1.20.1-47.3.1"
+#forge = "1.20.1-47.3.1"
 
 # https://fabricmc.net/develop
-fabric-loader = "0.15.11"
+fabric-loader = "0.16.9"
 
 # https://maven.jamalam.tech/#/releases/io/github/jamalam360/right-click-harvest
-rightclickharvest-fabric = "3.2.2+1.19.x-1.20.1-fabric"
-rightclickharvest-forge = "3.2.3+1.20.1-forge"
+rightclickharvest-fabric = "4.4.4+1.21.1"
+#rightclickharvest-forge = "3.2.3+1.20.1-forge"
 
 # https://modrinth.com/mod/supplementaries/versions
-supplementaries-fabric = "UTyMA2SU"
-supplementaries-forge = "sfePFkny"
+supplementaries-fabric = "RihagfdB"
+#supplementaries-forge = "sfePFkny"
 
 # https://modrinth.com/mod/moonlight/versions
-moonlight-fabric = "1sc8VeuV"
-moonlight-forge = "GSDEbxNt"
+moonlight-fabric = "F7VRCvQQ"
+#moonlight-forge = "GSDEbxNt"
 
 # https://modrinth.com/mod/modmenu/versions
 modmenu = "7.2.2"
 
 [libraries]
-forge = { module = "net.minecraftforge:forge", version.ref = "forge" }
+#forge = { module = "net.minecraftforge:forge", version.ref = "forge" }
 
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
 
-rightclickharvest-fabric = { module = "io.github.jamalam360:right-click-harvest", version.ref = "rightclickharvest-fabric" }
-rightclickharvest-forge = { module = "io.github.jamalam360:right-click-harvest", version.ref = "rightclickharvest-forge" }
+rightclickharvest-fabric = { module = "io.github.jamalam360:rightclickharvest-fabric", version.ref = "rightclickharvest-fabric" }
+#rightclickharvest-forge = { module = "io.github.jamalam360:right-click-harvest", version.ref = "rightclickharvest-forge" }
 
 supplementaries-fabric = { module = "maven.modrinth:supplementaries", version.ref = "supplementaries-fabric" }
-supplementaries-forge = { module = "maven.modrinth:supplementaries", version.ref = "supplementaries-forge" }
+#supplementaries-forge = { module = "maven.modrinth:supplementaries", version.ref = "supplementaries-forge" }
 
 moonlight-fabric = { module = "maven.modrinth:moonlight", version.ref = "moonlight-fabric" }
-moonlight-forge = { module = "maven.modrinth:moonlight", version.ref = "moonlight-forge" }
+#moonlight-forge = { module = "maven.modrinth:moonlight", version.ref = "moonlight-forge" }
 
 modmenu = { module = "maven.modrinth:modmenu", version.ref = "modmenu" }
