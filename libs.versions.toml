@@ -16,7 +16,7 @@ rightclickharvest-fabric = "4.4.4+1.21.1"
 rightclickharvest-neoforge = "4.4.4+1.21.1"
 
 # https://modrinth.com/mod/supplementaries/versions
-supplementaries-fabric = "SP418f5W"
+supplementaries-fabric = "RihagfdB"
 supplementaries-neoforge = "5UJVGbxs"
 
 # https://modrinth.com/mod/moonlight/versions
@@ -24,7 +24,7 @@ moonlight-fabric = "F7VRCvQQ"
 moonlight-neoforge = "ULfXjN2I"
 
 # https://modrinth.com/mod/modmenu/versions
-modmenu = "12.0.0"
+modmenu = "YIfqIJ8q"
 
 [libraries]
 neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
