@@ -30,4 +30,5 @@ dependencyResolutionManagement {
 rootProject.name = "rch-supplementaries-compat"
 include("common")
 include("fabric")
-include("forge")
+// TODO make the NeoForge subproject actually work
+//include("neoforge")
