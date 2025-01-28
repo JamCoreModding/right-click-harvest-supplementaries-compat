@@ -9,11 +9,8 @@ neoforge = "21.1.92"
 # https://fabricmc.net/develop
 fabric-loader = "0.16.9"
 
-# https://maven.jamalam.tech/#/releases/io/github/jamalam360/rightclickharvest-fabric
-rightclickharvest-fabric = "4.4.4+1.21.1"
-
-# https://maven.jamalam.tech/#/releases/io/github/jamalam360/rightclickharvest-neoforge
-rightclickharvest-neoforge = "4.4.4+1.21.1"
+jamlib = "1.2.2-build.2+1.21.1"
+rightclickharvest = "4.5.0+1.21.1"
 
 # https://modrinth.com/mod/supplementaries/versions
 supplementaries-fabric = "RihagfdB"
@@ -31,8 +28,12 @@ neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
 
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
 
-rightclickharvest-fabric = { module = "io.github.jamalam360:rightclickharvest-fabric", version.ref = "rightclickharvest-fabric" }
-rightclickharvest-neoforge = { module = "io.github.jamalam360:rightclickharvest-neoforge", version.ref = "rightclickharvest-neoforge" }
+jamlib-common = { module = "io.github.jamalam360:jamlib", version.ref = "jamlib" }
+jamlib-fabric = { module = "io.github.jamalam360:jamlib-fabric", version.ref = "jamlib" }
+jamlib-neoforge = { module = "io.github.jamalam360:jamlib-neoforge", version.ref = "jamlib" }
+
+rightclickharvest-fabric = { module = "io.github.jamalam360:rightclickharvest-fabric", version.ref = "rightclickharvest" }
+rightclickharvest-neoforge = { module = "io.github.jamalam360:rightclickharvest-neoforge", version.ref = "rightclickharvest" }
 
 supplementaries-fabric = { module = "maven.modrinth:supplementaries", version.ref = "supplementaries-fabric" }
 supplementaries-neoforge = { module = "maven.modrinth:supplementaries", version.ref = "supplementaries-neoforge" }

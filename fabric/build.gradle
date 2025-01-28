@@ -29,11 +29,12 @@ repositories {
 
 dependencies {
     modImplementation libs.fabric.loader
-    modRuntimeOnly libs.modmenu
+    modImplementation libs.jamlib.fabric
 
-    modImplementation libs.supplementaries.fabric
+    modRuntimeOnly libs.supplementaries.fabric
     modRuntimeOnly libs.moonlight.fabric
     modRuntimeOnly libs.rightclickharvest.fabric
+    modRuntimeOnly libs.modmenu
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -79,13 +80,13 @@ processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
             "minecraft_version": project.minecraft_version,
-            "rch_version": libs.versions.rightclickharvest.fabric.get(),
+            "rch_version": libs.versions.rightclickharvest.get(),
             "supplementaries_version": project.supplementaries_version
     }
 
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
-    inputs.property "rch_version", libs.versions.rightclickharvest.fabric.get()
+    inputs.property "rch_version", libs.versions.rightclickharvest.get()
     inputs.property "supplementaries_version", project.supplementaries_version
 }
 

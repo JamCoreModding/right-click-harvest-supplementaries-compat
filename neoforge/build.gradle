@@ -28,13 +28,11 @@ repositories {
 }
 
 dependencies {
-    // neoForge dependency method doesn't exist???
-    //neoForge libs.neoforge
+    neoForge libs.neoforge
+    modImplementation libs.jamlib.neoforge
 
-    // "Failed to process jar when running jar processor: fabric-loom:access-widener"
-    // "Cause: supplementaries.accesswidener"
-    // why.
-    //modImplementation libs.supplementaries.neoforge
+    // TODO: I think this is an architectury loom bug. Will diagnose later and in the meantime manually put supplementaries in the mods folder.
+    //    modRuntimeOnly libs.supplementaries.neoforge
     modRuntimeOnly libs.moonlight.neoforge
     modRuntimeOnly libs.rightclickharvest.neoforge
 
@@ -79,20 +77,23 @@ if (System.getenv("CURSEFORGE_API_KEY") != null && System.getenv("MODRINTH_API_K
 }
 
 processResources {
-    filesMatching("fabric.mod.json") {
+    filesMatching("META-INF/neoforge.mods.toml") {
         expand "version": project.version,
+                "neoforge_version": libs.versions.neoforge.get(),
                 "minecraft_version": project.minecraft_version,
-                "rch_version": libs.versions.rightclickharvest.neoforge.get(),
+                "rch_version": libs.versions.rightclickharvest.get(),
                 "supplementaries_version": project.supplementaries_version
     }
 
     inputs.property "version", project.version
+    inputs.property "neoforge_version", libs.versions.neoforge.get()
     inputs.property "minecraft_version", project.minecraft_version
-    inputs.property "rch_version", libs.versions.rightclickharvest.neoforge.get()
+    inputs.property "rch_version", libs.versions.rightclickharvest.get()
     inputs.property "supplementaries_version", project.supplementaries_version
 }
 
 shadowJar {
+    exclude "fabric.mod.json"
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
@@ -100,7 +101,6 @@ shadowJar {
 }
 
 remapJar {
-    injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
 }

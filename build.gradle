@@ -99,7 +99,6 @@ allprojects {
     tasks.publish {
         dependsOn(":githubRelease")
         dependsOn("fabric:publishUnified")
-        //dependsOn("forge:publishUnified")
-        // TODO NeoForge this bich
+        dependsOn("neoforge:publishUnified")
     }
 }

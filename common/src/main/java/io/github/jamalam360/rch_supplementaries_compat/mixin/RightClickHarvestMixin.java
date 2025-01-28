@@ -1,13 +1,13 @@
 package io.github.jamalam360.rch_supplementaries_compat.mixin;
 
-import io.github.jamalam360.rch_supplementaries_compat.RchSupplementariesCompatPlatform;
+import io.github.jamalam360.rch_supplementaries_compat.RchSupplementariesCompat;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.TallGrassBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,11 +31,12 @@ public abstract class RightClickHarvestMixin {
             method = "onBlockUse",
             at = @At(
                     value = "INVOKE",
-                    target = "Lio/github/jamalam360/rightclickharvest/RightClickHarvest;completeHarvest(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/item/ItemStack;ZZLjava/lang/Runnable;)Lnet/minecraft/world/InteractionResult;"
+                    target = "Lio/github/jamalam360/rightclickharvest/RightClickHarvest;completeHarvest(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/item/ItemStack;ZZLjava/lang/Runnable;)Lnet/minecraft/world/InteractionResult;",
+                    ordinal = 1
             )
     )
     private static InteractionResult rch_supplementaries_compat$modifyForSupplementaries(Level level, BlockState state, BlockPos pos, Player player, InteractionHand hand, ItemStack stackInHand, boolean hoeInUse, boolean removeReplant, Runnable setBlockAction) {
-        var flaxBlock = RchSupplementariesCompatPlatform.getFlaxBlock();
+        Block flaxBlock = RchSupplementariesCompat.getFlaxBlock();
         if (state.is(flaxBlock)) {
             BlockPos belowPos = pos.below();
             BlockState belowState = level.getBlockState(belowPos);
