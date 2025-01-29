@@ -1,22 +1,15 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
     id "me.shedaniel.unified-publishing"
 }
 
 architectury {
     platformSetupLoomIde()
-    forge()
+    neoForge()
 }
 
 base {
-    archivesName = "rch-supplementaries-compat-forge"
-}
-
-loom {
-    forge {
-        convertAccessWideners = true
-        mixinConfig "rch_supplementaries_compat.mixins.json"
-    }
+    archivesName = "rch-supplementaries-compat-neoforge"
 }
 
 configurations {
@@ -24,30 +17,36 @@ configurations {
     shadowCommon
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+    developmentNeoForge.extendsFrom common
+}
+
+repositories {
+    maven {
+        name = "NeoForge"
+        url = "https://maven.neoforged.net"
+    }
 }
 
 dependencies {
-    forge libs.forge
+    neoForge libs.neoforge
+    modImplementation libs.jamlib.neoforge
+    modImplementation libs.rightclickharvest.neoforge
 
-    modImplementation libs.supplementaries.forge
-    modRuntimeOnly libs.moonlight.forge
-    modRuntimeOnly(libs.rightclickharvest.forge) {
-        exclude group: "net.minecraftforge"
-    }
+    localMod libs.supplementaries.neoforge
+    modRuntimeOnly libs.moonlight.neoforge
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 }
 
 if (System.getenv("CURSEFORGE_API_KEY") != null && System.getenv("MODRINTH_API_KEY") != null) {
     unifiedPublishing {
         project {
-            displayName = "V${project.version} (Forge ${project.minecraft_version})"
+            displayName = "V${project.version} (NeoForge ${project.minecraft_version})"
             changelog = rootProject.file("CHANGELOG.md").text
             releaseType = project.version.contains("beta") ? "beta" : "release"
             gameVersions = [project.minecraft_version]
-            gameLoaders = ["forge"]
+            gameLoaders = ["neoforge"]
 
             mainPublication tasks.remapJar
 
@@ -77,14 +76,18 @@ if (System.getenv("CURSEFORGE_API_KEY") != null && System.getenv("MODRINTH_API_K
 }
 
 processResources {
-    filesMatching("mods.toml") {
-        expand "minecraft_version": project.minecraft_version,
-                "rch_version": libs.versions.rightclickharvest.forge.get(),
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": project.version,
+                "neoforge_version": libs.versions.neoforge.get(),
+                "minecraft_version": project.minecraft_version,
+                "rch_version": libs.versions.rightclickharvest.get(),
                 "supplementaries_version": project.supplementaries_version
     }
 
+    inputs.property "version", project.version
+    inputs.property "neoforge_version", libs.versions.neoforge.get()
     inputs.property "minecraft_version", project.minecraft_version
-    inputs.property "rch_version", libs.versions.rightclickharvest.forge.get()
+    inputs.property "rch_version", libs.versions.rightclickharvest.get()
     inputs.property "supplementaries_version", project.supplementaries_version
 }
 

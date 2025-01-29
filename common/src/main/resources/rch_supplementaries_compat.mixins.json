@@ -2,11 +2,9 @@
   "required": true,
   "minVersion": "0.8",
   "package": "io.github.jamalam360.rch_supplementaries_compat.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "plugin": "io.github.jamalam360.rch_supplementaries_compat.mixin.MixinPlugin",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "FabricRightClickHarvestModInitMixin",
-    "ForgeRightClickHarvestModInitMixin"
+    "RightClickHarvestMixin"
   ],
   "client": [
   ],

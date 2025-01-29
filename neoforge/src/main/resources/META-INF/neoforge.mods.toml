@@ -1,11 +1,11 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[1,)"
 license = "MIT"
 issueTrackerURL="https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat/issues"
 
 [[mods]]
 modId = "rch_supplementaries_compat"
-version = "${file.jarVersion}"
+version = "${version}"
 displayName = "RightClickHarvest Supplementaries Compat"
 displayURL="https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat"
 logoFile = "icon.png"
@@ -15,29 +15,32 @@ Adds compatibility between RightClickHarvest and Supplementaries
 '''
 
 [[dependencies.rch_supplementaries_compat]]
-modId = "forge"
-mandatory = true
-versionRange = "[47,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.rch_supplementaries_compat]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "[${minecraft_version},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.rch_supplementaries_compat]]
 modId = "rightclickharvest"
-mandatory = true
+type = "required"
 versionRange = "[${rch_version},)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.rch_supplementaries_compat]]
 modId = "supplementaries"
-mandatory = true
+type = "required"
 versionRange = "[${supplementaries_version},)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
+
+[[mixins]]
+config = "rch_supplementaries_compat.mixins.json"

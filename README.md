@@ -3,5 +3,5 @@
 This mod adds compatibility between RightClickHarvest and Supplementaries. It allows you to
 right-click-harvest Flax.
 
-It currently only supports Minecraft **1.20.1**. If you are interested in support for other
+It currently only supports Minecraft **1.20.1** and **1.21.1**. If you are interested in support for other
 versions, please reach out via Discord or GitHub.
