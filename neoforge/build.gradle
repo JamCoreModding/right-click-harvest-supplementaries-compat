@@ -30,11 +30,10 @@ repositories {
 dependencies {
     neoForge libs.neoforge
     modImplementation libs.jamlib.neoforge
+    modImplementation libs.rightclickharvest.neoforge
 
-    // TODO: I think this is an architectury loom bug. Will diagnose later and in the meantime manually put supplementaries in the mods folder.
-    //    modRuntimeOnly libs.supplementaries.neoforge
+    localMod libs.supplementaries.neoforge
     modRuntimeOnly libs.moonlight.neoforge
-    modRuntimeOnly libs.rightclickharvest.neoforge
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
