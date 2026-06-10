@@ -80,11 +80,13 @@ if (System.getenv("CURSEFORGE_API_KEY") != null && System.getenv("MODRINTH_API_K
 
 processResources {
     filesMatching("META-INF/mods.toml") {
-        expand "minecraft_version": project.minecraft_version,
+        expand "version": project.version,
+                "minecraft_version": project.minecraft_version,
                 "rch_version": libs.versions.rightclickharvest.get(),
                 "supplementaries_version": project.supplementaries_version
     }
 
+    inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "rch_version", libs.versions.rightclickharvest.get()
     inputs.property "supplementaries_version", project.supplementaries_version

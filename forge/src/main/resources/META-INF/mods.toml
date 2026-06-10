@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/JamCoreModding/right-click-harvest-supplemen
 
 [[mods]]
 modId = "rch_supplementaries_compat"
-version = "${file.jarVersion}"
+version = "${version}"
 displayName = "RightClickHarvest Supplementaries Compat"
 displayURL="https://github.com/JamCoreModding/right-click-harvest-supplementaries-compat"
 logoFile = "icon.png"
