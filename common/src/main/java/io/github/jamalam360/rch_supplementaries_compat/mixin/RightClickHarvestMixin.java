@@ -23,7 +23,6 @@ public abstract class RightClickHarvestMixin {
     private static InteractionResult rch_supplementaries_compat$modifyForSupplementaries(Player player, Level level, InteractionHand hand, BlockHitResult hitResult, boolean initialCall, Operation<InteractionResult> original) {
         Block flaxBlock = RchSupplementariesCompat.getFlaxBlock();
         BlockPos belowPos = hitResult.getBlockPos().below();
-
         if (level.getBlockState(belowPos).is(flaxBlock)) {
             hitResult = new BlockHitResult(hitResult.getLocation().subtract(0, 1, 0), hitResult.getDirection(), belowPos, hitResult.isInside());
         }

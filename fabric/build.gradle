@@ -32,7 +32,7 @@ dependencies {
     modImplementation libs.jamlib.fabric
     modImplementation libs.rightclickharvest.fabric
 
-    localMod libs.supplementaries.fabric
+    modRuntimeOnly libs.supplementaries.fabric
     modRuntimeOnly libs.moonlight.fabric
     modRuntimeOnly libs.modmenu
 

@@ -8,17 +8,18 @@ neoforge = "21.1.92"
 
 # https://fabricmc.net/develop
 fabric-loader = "0.16.9"
+fabric-api = "0.116.6+1.21.1"
 
 jamlib = "1.2.2-build.2+1.21.1"
 rightclickharvest = "4.5.0+1.21.1"
 
 # https://modrinth.com/mod/supplementaries/versions
-supplementaries-fabric = "RihagfdB"
-supplementaries-neoforge = "5UJVGbxs"
+supplementaries-fabric = "Exz712sl"
+supplementaries-neoforge = "GXkI2kmO"
 
 # https://modrinth.com/mod/moonlight/versions
-moonlight-fabric = "F7VRCvQQ"
-moonlight-neoforge = "ULfXjN2I"
+moonlight-fabric = "9BYOjF6l"
+moonlight-neoforge = "RrSYwKog"
 
 # https://modrinth.com/mod/modmenu/versions
 modmenu = "YIfqIJ8q"
@@ -27,6 +28,7 @@ modmenu = "YIfqIJ8q"
 neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
 
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 
 jamlib-common = { module = "io.github.jamalam360:jamlib", version.ref = "jamlib" }
 jamlib-fabric = { module = "io.github.jamalam360:jamlib-fabric", version.ref = "jamlib" }

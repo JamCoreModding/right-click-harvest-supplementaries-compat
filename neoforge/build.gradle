@@ -32,7 +32,7 @@ dependencies {
     modImplementation libs.jamlib.neoforge
     modImplementation libs.rightclickharvest.neoforge
 
-    localMod libs.supplementaries.neoforge
+    modRuntimeOnly libs.supplementaries.neoforge
     modRuntimeOnly libs.moonlight.neoforge
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
