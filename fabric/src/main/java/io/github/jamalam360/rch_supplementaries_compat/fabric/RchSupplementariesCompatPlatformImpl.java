@@ -7,8 +7,4 @@ public class RchSupplementariesCompatPlatformImpl {
     public static Block getFlaxBlock() {
         return ModRegistry.FLAX.get();
     }
-
-    public static boolean isFabric() {
-        return true;
-    }
 }

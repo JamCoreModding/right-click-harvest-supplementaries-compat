@@ -8,9 +8,4 @@ public class RchSupplementariesCompatPlatform {
     public static Block getFlaxBlock() {
         throw new AssertionError();
     }
-
-    @ExpectPlatform
-    public static boolean isFabric() {
-        throw new AssertionError();
-    }
 }
